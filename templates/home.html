@@ -1,0 +1,146 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Carousel s novinkami -->
+<div class="container-fluid bg-light">
+  <div class="container">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        {% for novinka in novinky %}
+        {% if forloop.first %}
+        <li data-target="#carouselExampleCaptions" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+        {% else %}
+        <li data-target="#carouselExampleCaptions" data-slide-to="{{ forloop.counter0 }}"></li>
+        {% endif %}
+        {% endfor %}
+      </ol>
+      <div class="carousel-inner">
+        {% for novinka in novinky %}
+        <div class="carousel-item {% if forloop.first %} active {% endif %}">
+          <img src="{{ novinka.image.url }}" class="d-block w-100" alt="{{ novinka.title }}"
+            style="height: 400px; width: 1200px; opacity: 0.7;">
+          <div class="carousel-caption d-none d-md-block bg-success text-white">
+            <h5>{{ novinka.title }}</h5>
+            <p>{{ novinka.text }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- OZNAM! -->
+<div class="container-fluid bg-light">
+  <div class="oznamy-img"> </div>
+  <div class="container oznamy">
+    <span class="display-4"> Oznamy </span>
+    <div class="row pt-5">
+      {% for oznam in oznamy %}
+      <div class="col-sm">
+        <div class="card mt-2">
+          <div class="card-body border border-success rounded-lg bg-light shadow-sm">
+            {{ oznam.body }}
+            <p class="text-warning text-left mt-2" style="font-size: small;">{{ oznam.date }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Uradna tabula/odapd! -->
+<div class="container-fluid bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md">
+
+        <!-- Uradna tabula -->
+
+        <div class="accordion" id="accordionExample">
+          {% for post in posts %}
+          <div class="card mt-3">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                  data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  {{ post.date }}
+                </button>
+              </h2>
+            </div>
+            <div id="collapse{{ forloop.counter }}" class="collapse show" aria-labelledby="headingOne"
+              data-parent="#accordionExample">
+              <div class="card-body">
+                <a href="{{post.file.url}}" target="_blank">{{ post.title }}</a>
+              </div>
+              {% if post.file1 %}
+              <div class="card-body">
+                <a href="{{post.file1.url}}" target="_blank">{{ post.title1 }}</a>
+              </div>
+              {% endif %}
+              {% if post.file2 %}
+              <div class="card-body">
+                <a href="{{post.file2.url}}" target="_blank">{{ post.title2 }}</a>
+              </div>
+              {% endif %}
+              {% if post.file3 %}
+              <div class="card-body">
+                <a href="{{post.file3.url}}" target="_blank">{{ post.title3 }}</a>
+              </div>
+              {% endif %}
+              {% if post.file4 %}
+              <div class="card-body">
+                <a href="{{post.file4.url}}" target="_blank">{{ post.title4 }}</a>
+              </div>
+              {% endif %}
+              {% if post.file5 %}
+              <div class="card-body">
+                <a href="{{post.file5.url}}" target="_blank">{{ post.title5 }}</a>
+              </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Uradna tabula koniec -->
+
+        <!-- Odpady -->
+        <div class="col-md my-auto">
+          <div class="container">
+            {% for odpad in odpady %}
+            <div class="row row-striped">
+              <div class="col-2 text-right">
+                <h1 class="display-4"><span class="badge badge-success">{{ odpad.day }}</span></h1>
+                <h2>{{ odpad.month }}</h2>
+              </div>
+              <div class="col-10">
+                <h3 class="text-uppercase"><strong>{{ odpad.description }}</strong></h3>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ odpad.week_day }}</li>
+                </ul>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- Odpady koniec -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock content %}

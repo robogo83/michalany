@@ -1,0 +1,70 @@
+/* .whcarousel {
+    height: 200px;
+    width: 1200px;
+    
+  } */
+
+.oznamy {
+  text-align: center;
+  padding: 3% 0; 
+
+}
+
+
+
+  .row-striped {
+      padding: 15px 0;
+  }
+
+  a:link{
+    color: green;
+  }
+  a{
+    color: green;
+  }
+  .btn-link{
+    color: black;
+  }
+
+
+  .nav.navbar-nav li a {
+    color: black !important; 
+  }
+ 
+ .nav.navbar-nav a:hover {
+  color: green !important;
+ }
+
+a.amenu:link{
+  color: yellow;
+}
+
+div.submenu{
+  background-color: green;
+  color: rgb(233, 233, 6);;
+  height: 7rem;
+  width: 18rem;
+}
+div:hover.submenu a{
+  background-color: rgb(233, 233, 6);
+  color: green;
+ }
+ div:hover.submenu{
+  background-color: rgb(233, 233, 6);
+ }
+
+ .up{
+  text-transform: uppercase;
+ }
+ .verticalLine {
+  border-left: thick solid green;
+}
+.bg-green{
+  background-color: green;
+  height: 4rem;
+}
+
+.lfmenu{
+  text-align: center;
+  color: white;
+}
