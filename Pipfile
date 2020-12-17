@@ -11,6 +11,7 @@ psycopg2-binary = "*"
 django-allauth = "*"
 pillow = "*"
 django-colorfield = "*"
+django-ckeditor = "*"
 
 [requires]
 python_version = "3.8"

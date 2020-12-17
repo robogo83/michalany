@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth',
 	'allauth.account',
     'colorfield',
+    'ckeditor',
     # My apps
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',

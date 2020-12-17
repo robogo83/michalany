@@ -1,6 +1,8 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block title %}Michaľany{% endblock title %}
+
 {% block content %}
 <!-- Carousel s novinkami -->
 <div class="container-fluid bg-light">
@@ -20,10 +22,12 @@
         <div class="carousel-item {% if forloop.first %} active {% endif %}">
           <img src="{{ novinka.image.url }}" class="d-block w-100" alt="{{ novinka.title }}"
             style="height: 400px; width: 1200px; opacity: 0.7;">
-          <div class="carousel-caption d-none d-md-block bg-success text-white">
+          {% if novinka.title and novinka.text %}
+          <div class="carousel-caption d-none d-md-block bg-white text-dark novinka-bg">
             <h5>{{ novinka.title }}</h5>
             <p>{{ novinka.text }}</p>
           </div>
+          {% endif %}
         </div>
         {% endfor %}
       </div>
@@ -40,16 +44,15 @@
 </div>
 <!-- OZNAM! -->
 <div class="container-fluid bg-light">
-  <div class="oznamy-img"> </div>
   <div class="container oznamy">
-    <span class="display-4"> Oznamy </span>
+    <h1 class="text-center">Oznamy</h1>
     <div class="row pt-5">
       {% for oznam in oznamy %}
       <div class="col-sm">
         <div class="card mt-2">
-          <div class="card-body border border-success rounded-lg bg-light shadow-sm">
-            {{ oznam.body }}
-            <p class="text-warning text-left mt-2" style="font-size: small;">{{ oznam.date }}</p>
+          <div class="card-body border border-success rounded-lg bg-light shadow-sm oznam-bg">
+            <p class="card-text text-left h5 font-weight-bold"> {{ oznam.body }} </p>
+            <p class="text-dark-50 text-left mt-2">{{ oznam.date }}</p>
           </div>
         </div>
       </div>
@@ -59,85 +62,125 @@
 </div>
 
 <!-- Uradna tabula/odapd! -->
-<div class="container-fluid bg-light">
-  <div class="container">
+<div class="container-fluid uradna-odpad">
+  <div class="container pb-5">
     <div class="row">
-      <div class="col-md">
 
-        <!-- Uradna tabula -->
+
+      <!-- Uradna tabula -->
+      <div class="col-md">
+        <h2 class="pb-4 text-center">Úradná tabuľa</h2>
+        {% for post in posts %}
 
         <div class="accordion" id="accordionExample">
-          {% for post in posts %}
+
           <div class="card mt-3">
-            <div class="card-header" id="headingOne">
+            <div class="card-header bg-success" id="heading{{ forloop.counter }}">
               <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                  data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-outline-success btn-block text-left text-white" type="button"
+                  data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" aria-expanded="true"
+                  aria-controls="collapse{{ forloop.counter }}">
                   {{ post.date }}
                 </button>
               </h2>
             </div>
-            <div id="collapse{{ forloop.counter }}" class="collapse show" aria-labelledby="headingOne"
+            <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="heading{{ forloop.counter }}"
               data-parent="#accordionExample">
               <div class="card-body">
-                <a href="{{post.file.url}}" target="_blank">{{ post.title }}</a>
+                <a class="btn text-left btn-outline-dark" href="{{post.file.url}}" target="_blank">{{ post.title }}</a>
               </div>
               {% if post.file1 %}
               <div class="card-body">
-                <a href="{{post.file1.url}}" target="_blank">{{ post.title1 }}</a>
+                <a class="btn text-left btn-outline-dark" href="{{post.file1.url}}"
+                  target="_blank">{{ post.title1 }}</a>
               </div>
               {% endif %}
               {% if post.file2 %}
               <div class="card-body">
-                <a href="{{post.file2.url}}" target="_blank">{{ post.title2 }}</a>
+                <a class="btn text-left btn-outline-dark" href="{{post.file2.url}}"
+                  target="_blank">{{ post.title2 }}</a>
               </div>
               {% endif %}
               {% if post.file3 %}
               <div class="card-body">
-                <a href="{{post.file3.url}}" target="_blank">{{ post.title3 }}</a>
+                <a class="btn text-left btn-outline-dark" href="{{post.file3.url}}"
+                  target="_blank">{{ post.title3 }}</a>
               </div>
               {% endif %}
               {% if post.file4 %}
               <div class="card-body">
-                <a href="{{post.file4.url}}" target="_blank">{{ post.title4 }}</a>
+                <a class="btn text-left btn-outline-dark" href="{{post.file4.url}}"
+                  target="_blank">{{ post.title4 }}</a>
               </div>
               {% endif %}
               {% if post.file5 %}
               <div class="card-body">
-                <a href="{{post.file5.url}}" target="_blank">{{ post.title5 }}</a>
+                <a class="btn text-left btn-outline-dark" href="{{post.file5.url}}"
+                  target="_blank">{{ post.title5 }}</a>
               </div>
               {% endif %}
             </div>
-            {% endfor %}
           </div>
-        </div>
 
-        <!-- Uradna tabula koniec -->
-
-        <!-- Odpady -->
-        <div class="col-md my-auto">
-          <div class="container">
-            {% for odpad in odpady %}
-            <div class="row row-striped">
-              <div class="col-2 text-right">
-                <h1 class="display-4"><span class="badge badge-success">{{ odpad.day }}</span></h1>
-                <h2>{{ odpad.month }}</h2>
-              </div>
-              <div class="col-10">
-                <h3 class="text-uppercase"><strong>{{ odpad.description }}</strong></h3>
-                <ul class="list-inline">
-                  <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ odpad.week_day }}</li>
-                </ul>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
         </div>
-        <!-- Odpady koniec -->
+        {% endfor %}
+        <a class="btn btn-success mt-4 mb-4 text-white" href="">Zobraziť viac</a>
       </div>
+
+      <!-- Uradna tabula koniec -->
+
+      <!-- Odpady -->
+      <div class="col-md">
+        <h2 class="text-center mb-5">Zber komunálneho odpadu</h2>
+        <div class="container">
+          {% for odpad in odpady %}
+          <div class="row row-striped">
+            <div class="col-2 text-right">
+              <h1 class="display-4"><span class="badge badge-success">{{ odpad.day }}</span></h1>
+              <h4>{{ odpad.month }}</h4>
+            </div>
+            <div class="col-10 pl-5">
+              <h4 class="text-uppercase"><strong>{{ odpad.description }}</strong></h4>
+              <ul class="list-inline">
+                <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ odpad.week_day }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+      <!-- Odpady koniec -->
+
     </div>
   </div>
 </div>
+
+
+<!-- Aktuality! -->
+<div class="container mt-5 pb-5">
+  <h2 class="text-center font-weight-bold mb-5">Aktuality</h2>
+  <div class="row">
+    {% for aktualita in aktuality %}
+    <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
+      <div class="card">
+        <img class="card-img-top" src="{{ aktualita.image.url }}" alt="Card image cap">
+        <div class="card-body">
+          <h5>{{aktualita.title}}</h5>
+          <p class="aktuality-date mt-2">{{ aktualita.date }}</p>
+          <p class="card-title text-muted mt-3 mb-2">{{ aktualita.body|safe|slice:':280' }}</p>
+          <button type="button" class="btn btn-flat text-success p-0 mx-0">Čítaj viac<i
+              class="fa fa-angle-right ml-2"></i></button>      
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
 
 
 

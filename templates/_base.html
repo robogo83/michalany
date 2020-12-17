@@ -14,17 +14,22 @@
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <!-- static files -->
     <link rel="stylesheet" href="/static/css/base.css?{% now "U" %}">
-    <title>{% block title %}Michalany{% endblock title %}</title>
+    <title>{% block title %}{% endblock title %}</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap" rel="stylesheet">  
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-white border-bottom border-success navbar-expand-lg" id="myNavbar">
+    <nav class="navbar navbar-light border-bottom border-success navbar-expand-lg" id="myNavbar">
         <div class="container collapsed">
-            <a href="#" class="navbar-brand">
+            
                 <img src="{% static 'images/ErbMichalany.png' %}" alt="logo" width="65" height="70"
                     class="d-inline-block align-top">
-            </a>
-            <h4>Obec Michaľany</h3>
+            
+            <a class="navbar-brand ml-5" href="{% url 'home' %}"><h3>Obec Michaľany</h3></a> 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,16 +37,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item px-4 active">
-                            <h4><a class="nav-link" href="#">Obec <span class="sr-only">(current)</span></a></h4>
-
+                            <a class="nav-link" href="#"><h4>Obec</h4> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item px-4">
-                            <h4><a class="nav-link" href="#">Samospráva</a></h4>
-
+                            <a class="nav-link" href="#"><h4>Samospráva</h4></a>
                         </li>
                         <li class="nav-item px-4">
-                            <h4><a class="nav-link" href="#">Občan</a></h4>
-
+                            <a class="nav-link" href="#"><h4>Občan</h4></a>
                         </li>
                     </ul>
                 </div>

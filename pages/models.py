@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import datetime
+import uuid
 from colorfield.fields import ColorField
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Novinky(models.Model):
@@ -10,8 +12,7 @@ class Novinky(models.Model):
 
     class Meta:
         verbose_name_plural = 'novinky'
-    def __str__(self):
-        return self.title
+    
 
 class Oznamy(models.Model):
     body = models.TextField(max_length=1200)
@@ -119,3 +120,20 @@ class Odpad(models.Model):
     
     def __str__(self):
         return str(self.day)
+
+class Aktuality(models.Model):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False
+    )
+    image = models.ImageField(upload_to='images/')
+    title = models.CharField(max_length=350)
+    date = models.DateField(auto_now=True)
+    body = RichTextField()
+
+    class Meta:
+        verbose_name_plural = 'aktuality'
+    
+    def __str__(self):
+        return self.title
