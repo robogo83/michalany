@@ -15,7 +15,7 @@ class Novinky(models.Model):
     
 
 class Oznamy(models.Model):
-    body = models.TextField(max_length=1200)
+    body = RichTextField()
     date = models.DateField(default=datetime.now)
 
     class Meta:

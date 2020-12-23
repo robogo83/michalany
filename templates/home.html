@@ -49,9 +49,9 @@
     <div class="row pt-5">
       {% for oznam in oznamy %}
       <div class="col-sm">
-        <div class="card mt-2">
+        <div class="card mt-2 oznam-body">
           <div class="card-body border border-success rounded-lg bg-light shadow-sm oznam-bg">
-            <p class="card-text text-left h5 font-weight-bold"> {{ oznam.body }} </p>
+            <p class="card-text text-left h5 font-weight-bold"> {{ oznam.body|safe }} </p>
             <p class="text-dark-50 text-left mt-2">{{ oznam.date }}</p>
           </div>
         </div>
@@ -68,7 +68,7 @@
 
 
       <!-- Uradna tabula -->
-      <div class="col-md">
+      <div class="col-md uradna-tabula">
         <h2 class="pb-4 text-center">Úradná tabuľa</h2>
         {% for post in posts %}
 
@@ -164,7 +164,7 @@
   <h2 class="text-center font-weight-bold mb-5">Aktuality</h2>
   <div class="row">
     {% for aktualita in aktuality %}
-    <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
+    <div class="col-lg-4 col-md-12 mb-lg-0 mb-4 aktualita-card">
       <div class="card">
         <img class="card-img-top" src="{{ aktualita.image.url }}" alt="Card image cap">
         <div class="card-body">
@@ -172,18 +172,12 @@
           <p class="aktuality-date mt-2">{{ aktualita.date }}</p>
           <p class="card-title text-muted mt-3 mb-2">{{ aktualita.body|safe|slice:':280' }}</p>
           <button type="button" class="btn btn-flat text-success p-0 mx-0">Čítaj viac<i
-              class="fa fa-angle-right ml-2"></i></button>      
+              class="fa fa-angle-right ml-2"></i></button>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
 </div>
-
-
-
-
-
-
 
 {% endblock content %}

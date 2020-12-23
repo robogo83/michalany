@@ -10,6 +10,8 @@ h1, h2, h3, h4, h5 {
   color: #132743;
 }
 
+/*********************************** Home Page ************************************************/
+
 .aktuality-date {
   font-size: small;
   color: #61b15a;
@@ -21,11 +23,19 @@ h1, h2, h3, h4, h5 {
   object-fit: cover;
 }
 
+.copyright {
+  padding: 2% 0;
+  text-align: center;
+  width: 50%;
+  font-size: small;
+  color: #8f8f8f;
+}
+
 .nav-link h4:hover {
   color: #0e918c !important;
 }
 
-.novinka-bg, .oznam-bg, #myNavbar  {
+.novinka-bg, .oznam-bg, #myNavbar, .kontakt  {
   background-image: linear-gradient(#61b15a, #b8de6f);
   
 }
@@ -38,5 +48,44 @@ h1, h2, h3, h4, h5 {
   background-image: linear-gradient(#61b15a, #b8de6f);
   padding-top: 5%;
 }
+
+@media (max-width: 990px) {
+  .oznamy {
+    padding: 10% 0;
+  }
+  .oznam-body {
+    margin-bottom: 10%;
+  }
+  .uradna-tabula {
+    padding: 10% 0;
+  }
+  .aktualita-card {
+    padding-bottom: 5%;
+  }
+  .kontakt-kniznica {
+    padding-top: 7%;
+  }
+}
+
+/*********************************** Submenu Pages ************************************************/
+
+.amenu {
+  text-decoration: none !important;
+}
+
+div.submenu{
+  background-image: linear-gradient(#61b15a, #b8de6f);
+  height: 7rem;
+  width: 18rem;
+}
+div:hover.submenu a{
+  background-color: rgb(233, 233, 6);
+  color: green;
+}
+div:hover.submenu{
+  background-image: linear-gradient(#b8de6f,#61b15a);
+  box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 
 
