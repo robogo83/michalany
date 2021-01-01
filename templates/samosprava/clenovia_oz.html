@@ -1,0 +1,90 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block title %}Členovia: Obecné zastupiteľstvo{% endblock title %}
+
+{% block content %}
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="d-block d-sm-none d-none d-sm-block d-lg-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light justify-content-end">
+                    <li class="breadcrumb-item zoom"><a href="{% url 'home' %}">Titulna stránka</a></li>
+                    <li class="breadcrumb-item zoom"><a href="{% url 'samosprava' %}">Samospráva</a></li>
+                    <li class="breadcrumb-item zoom"><a href="{% url 'zastupitelstvo' %}">Obecné zastupiteľstvo</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Zoznam členov obecného zastupiteľstva</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container-fluid row">
+            {% include '_sidebar_samosprava.html' %}
+            <!-- stred -->
+            <div class="col">
+                <h2 class="mb-5 display-4 text-center text-md-left">Zoznam členov obecného zastupiteľstva</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Meno, priezvisko</th>
+                                <th scope="col">Funkcia</th>
+                                <th scope="col">Emailová adresa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ing. Mgr. Ľudmila Dudašková</td>
+                                <td>Poslanec</td>
+                                <td>dudaskovaludmila@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>Bc. Tibor Gore</td>
+                                <td>Poslanec</td>
+                                <td>tibor.gore@zoznam.sk</td>
+                            </tr>
+                            <tr>
+                                <td>Mgr. Peter Kolesár</td>
+                                <td>Poslanec <br>
+                                    zástupca starostu</td>
+                                <td>cekomi32@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>Bc. Ján Kremenák</td>
+                                <td>Poslanec</td>
+                                <td>kremenak.jan@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>Ing. Jozef Orenič</td>
+                                <td>Poslanec</td>
+                                <td>orenic.jozef@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>Jozef Orenič</td>
+                                <td>Poslanec</td>
+                                <td>orenic.jozo@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>Valéria Orosová</td>
+                                <td>Poslanec</td>
+                                <td>valikaorosova1@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>Mgr. Emília Širotníková</td>
+                                <td>Poslanec</td>
+                                <td>sirotnikovamilka@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>Ivan Zamba</td>
+                                <td>Poslanec</td>
+                                <td>ivanzamba21@gmail.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

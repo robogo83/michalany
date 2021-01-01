@@ -1,0 +1,81 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block title %}Zápisnice: Obecné zastupiteľstvo{% endblock title %}
+
+{% block content %}
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="d-block d-sm-none d-none d-sm-block d-lg-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light justify-content-end">
+                    <li class="breadcrumb-item zoom"><a href="{% url 'home' %}">Titulna stránka</a></li>
+                    <li class="breadcrumb-item zoom"><a href="{% url 'samosprava' %}">Samospráva</a></li>
+                    <li class="breadcrumb-item zoom"><a href="{% url 'zastupitelstvo' %}">Obecné zastupiteľstvo</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Zápisnice a uznesenia OZ</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container-fluid row">
+            {% include '_sidebar_samosprava.html' %}
+            <div class="col">
+                <h2 class="mb-5 display-4 text-center text-md-left">Zápisnice a uznesenie OZ</h2>
+
+                <div id="accordion">
+                    {% for obdobie in zapisnice %}
+                    <div class="card">
+                        <div class="card-header bg-success" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-outline-success btn-block text-left text-white"
+                                    data-toggle="collapse" data-target="#collapse{{ forloop.counter }}"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    Volebné obdobie {{ obdobie.obdobie }}
+                                </button>
+                            </h5>
+                        </div>
+                        
+                        <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                          <th scope="col">Uznesenia</th>
+                                          <th scope="col">Zápisnice</th>
+                                        </tr>
+                                      </thead>
+                                      {% for datum in obdobie.zapisnice.all %}
+                                    <tbody>
+                                        <tr>
+                                            {% language 'sk' %}
+                                            <td class="pulse">
+                                                {% if datum.uznesenie %}
+                                            <a href="{{datum.uznesenie.url}}" target="_blank">
+                                            {{ datum.date|date:'d. F Y'  }}
+                                            </a>{% endif %}</td>
+                                            <td class="pulse">
+                                                {% if datum.zapisnica %}
+                                            <a href="{{datum.zapisnica.url}}" target="_blank">
+                                            {{ datum.date|date:'d. F Y'  }}
+                                            </a>{% endif %}</td>
+                                            {% endlanguage %}
+                                        </tr>
+                                    </tbody>
+                                    {% endfor %}
+                                </table>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

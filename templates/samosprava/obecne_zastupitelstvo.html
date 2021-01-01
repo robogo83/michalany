@@ -1,0 +1,96 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block title %}Obecné zastupiteľstvo: Michaľany{% endblock title %}
+
+{% block content %}
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="d-block d-sm-none d-none d-sm-block d-lg-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light justify-content-end">
+                    <li class="breadcrumb-item zoom"><a href="{% url 'home' %}">Titulna stránka</a></li>
+                    <li class="breadcrumb-item zoom"><a href="{% url 'samosprava' %}">Samospráva</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Obecné zastupiteľstvo</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container-fluid row">
+            {% include '_sidebar_samosprava.html' %}
+            <div class="col">
+                <h2 class="mb-5 display-4 text-center text-md-left">Obecné zastupiteľstvo</h2>
+                <h2 class="my-4 text-center">Súvisiace odkazy</h2>
+                <div class="row mx-auto">
+                    <div class="col-md-6 col-sm-12 pt-3 d-flex justify-content-center">
+                        <a href="{% url 'pozvanka' %}">
+                            <div class="card-body text-center submenu">
+                                <h5 class="card-title mt-3">POZVÁNKA NA ZASADNUTIE OZ</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-12 pt-3 d-flex justify-content-center">
+                        <a href="{% url 'clenovia' %}">
+                            <div class="card-body text-center submenu">
+                                <h5 class="card-title mt-3">ZOZNAM ČLENOV OZ</h5>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 pt-3 d-flex justify-content-center">
+                        <a href="{% url 'zapisnice' %}">
+                            <div class="card-body text-center submenu">
+                                <h5 class="card-title mt-3">ZÁPISNICE A UZNESENIA OZ</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-12 pt-3 d-flex justify-content-center">
+                        <a href="#">
+                            <div class="card-body text-center submenu">
+                                <h5 class="card-title mt-3">ROKOVACÍ PORIADOK OZ</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pt-5">
+                    <h2 class="my-4 text-center">Právomoci obecného zastupiteľstva</h2>
+                    <ul class="pt-2 oz-pravomoci" style="list-style-type:circle;">
+                        <li>určovať zásady hospodárenia a nakladania s majetkom obce a s majetkom štátu ktorý užíva,
+                            schvaľovať najdôležitejšie úkony týkajúce sa tohto majetku a kontrolovať hospodárenie s ním
+                        </li>
+                        <li>schvaľovať rozpočet obce a jeho zmeny, kontrolovať jeho čerpanie a schvaľovať záverečný účet
+                            obce, schvaľovať emisiu komunálnych dlhopisov, schvaľovať zmluvu uzavretú podľa § 20 ods. 1,
+                            rozhodovať o prijatí úveru alebo pôžičky, o prevzatí dlhu a o prevzatí ručiteľského záväzku
+                        </li>
+                        <li>schvaľovať územný plán obce alebo jej časti a koncepcie rozvoja jednotlivých oblastí života
+                            obce</li>
+                        <li>rozhodovať o zavedení a zrušení miestnej dane alebo miestneho poplatku</li>
+                        <li>určovať náležitosti miestnej dane alebo miestneho poplatku a verejnej dávky a rozhodovať o
+                            prijatí úveru alebo pôžičky</li>
+                        <li>vyhlasovať hlasovanie obyvateľov obce o najdôležitejších otázkach života a rozvoja obce a
+                            zvolávať verejné zhromaždenia občanov</li>
+                        <li>uznášať sa na nariadeniach</li>
+                        <li>schvaľovať dohody o medzinárodnej spolupráci a členstvo obce v medzinárodnom združení</li>
+                        <li>určovať organizáciu obecného úradu a určovať plat starostu a hlavného kontrolóra</li>
+                        <li>zriaďovať funkciu hlavného kontrolóra a určovať mu rozsah pracovného úväzku</li>
+                        <li>schvaľovať poriadok odmeňovania pracovníkov obce ako aj ďalšie predpisy (rokovací poriadok a
+                            pod.)</li>
+                        <li>zriaďovať, zrušovať a kontrolovať rozpočtové a príspevkové organizácie obce a na návrh
+                            starostu vymenúvať a odvolávať ich vedúcich (riaditeľov), zakladať a zrušovať obchodné
+                            spoločnosti a iné právnické osoby a schvaľovať zástupcov obce do ich štatutárnych a
+                            kontrolných orgánov, ako aj schvaľovať majetkovú účasť obce v právnickej osobe</li>
+                        <li>schvaľovať združovanie obecných prostriedkov a činností a účasť v združeniach, ako aj
+                            zriadenie spoločného regionálneho alebo záujmového fondu</li>
+                        <li>zriaďovať a zrušovať orgány potrebné na samosprávu obce a určovať náplň ich práce</li>
+                        <li>udeľovať čestné občianstvo obce, obecné vyznamenania a ceny</li>
+                        <li>ustanoviť erb obce, vlajku obce, pečať obce, prípadne znelku obce</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

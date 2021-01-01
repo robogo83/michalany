@@ -1,9 +1,17 @@
 {% extends '_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block title %}Michaľany{% endblock title %}
 
 {% block content %}
+<nav class="navbar navbar-expand navbar-dark bg-dark pr-3">  
+    <div class="navbar-nav ml-auto pr-5">
+      <a class="nav-link" href="#uradna_tabula">Úradná tabuľa</a>  
+      <a class="nav-link" href="#aktuality">Aktuality</a>  
+      <a class="nav-link" href="#kontakt">Kontakt</a>
+    </div>
+</nav>
 <!-- Carousel s novinkami -->
 <div class="container-fluid bg-light">
   <div class="container">
@@ -49,10 +57,12 @@
     <div class="row pt-5">
       {% for oznam in oznamy %}
       <div class="col-sm">
-        <div class="card mt-2 oznam-body">
+        <div class="card mt-2 oznam-body zoom">
           <div class="card-body border border-success rounded-lg bg-light shadow-sm oznam-bg">
             <p class="card-text text-left h5 font-weight-bold"> {{ oznam.body|safe }} </p>
-            <p class="text-dark-50 text-left mt-2">{{ oznam.date }}</p>
+            {% language 'sk' %}
+            <p class="text-dark-50 text-left mt-2">{{ oznam.date|date:'d. F Y' }}</p>
+            {% endlanguage %}
           </div>
         </div>
       </div>
@@ -68,7 +78,7 @@
 
 
       <!-- Uradna tabula -->
-      <div class="col-md uradna-tabula">
+      <div class="col-md uradna-tabula" id="uradna_tabula">
         <h2 class="pb-4 text-center">Úradná tabuľa</h2>
         {% for post in posts %}
 
@@ -80,7 +90,9 @@
                 <button class="btn btn-outline-success btn-block text-left text-white" type="button"
                   data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" aria-expanded="true"
                   aria-controls="collapse{{ forloop.counter }}">
-                  {{ post.date }}
+                  {% language 'sk' %}
+                  {{ post.date|date:'d. F Y' }}
+                  {% endlanguage %}
                 </button>
               </h2>
             </div>
@@ -124,7 +136,7 @@
 
         </div>
         {% endfor %}
-        <a class="btn btn-success mt-4 mb-4 text-white" href="">Zobraziť viac</a>
+        <a class="btn btn-success mt-4 mb-4 text-white zoom" href="{% url 'uradna_tabula' %}">Zobraziť viac</a>
       </div>
 
       <!-- Uradna tabula koniec -->
@@ -160,7 +172,7 @@
 
 
 <!-- Aktuality! -->
-<div class="container mt-5 pb-5">
+<div class="container mt-5 pb-5" id="aktuality">
   <h2 class="text-center font-weight-bold mb-5">Aktuality</h2>
   <div class="row">
     {% for aktualita in aktuality %}
@@ -169,9 +181,11 @@
         <img class="card-img-top" src="{{ aktualita.image.url }}" alt="Card image cap">
         <div class="card-body">
           <h5>{{aktualita.title}}</h5>
-          <p class="aktuality-date mt-2">{{ aktualita.date }}</p>
+          {% language 'sk' %}
+          <p class="aktuality-date mt-2">{{ aktualita.date|date:'d. F Y' }}</p>
+          {% endlanguage %}
           <p class="card-title text-muted mt-3 mb-2">{{ aktualita.body|safe|slice:':280' }}</p>
-          <button type="button" class="btn btn-flat text-success p-0 mx-0">Čítaj viac<i
+          <button type="button" class="btn btn-flat text-success p-0 mx-0 zoom">Čítaj viac<i
               class="fa fa-angle-right ml-2"></i></button>
         </div>
       </div>

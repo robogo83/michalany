@@ -29,7 +29,7 @@
                 <img src="{% static 'images/ErbMichalany.png' %}" alt="logo" width="65" height="70"
                     class="d-inline-block align-top">
             
-            <a class="navbar-brand ml-5" href="{% url 'home' %}"><h3>Obec Michaľany</h3></a> 
+            <a class="navbar-brand ml-4 zoom" href="{% url 'home' %}"><h3>Obec Michaľany</h3></a> 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,13 +37,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item px-4 active">
-                            <a class="nav-link" href="{% url 'obec' %}"><h4>Obec</h4> <span class="sr-only">(current)</span></a>
+                            <a class="nav-link zoom" href="{% url 'obec' %}"><h4>Obec</h4> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="{% url 'samosprava' %}"><h4>Samospráva</h4></a>
+                            <a class="nav-link zoom" href="{% url 'samosprava' %}"><h4>Samospráva</h4></a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="{% url 'obcan' %}"><h4>Občan</h4></a>
+                            <a class="nav-link zoom" href="{% url 'obcan' %}"><h4>Občan</h4></a>
                         </li>
                     </ul>
                 </div>
@@ -56,7 +56,7 @@
     {% endblock content %}
     <!-- Footer! -->
 <div class="container-fluid p-5 kontakt">
-    <div class="container">
+    <div class="container" id="kontakt">
       <div class="row text-center">
         <div class="col-sm mt-2">
           <div class="col-sm kontakt-kniznica">
@@ -154,7 +154,30 @@
   
   <!-- Footer-2! -->
   <div class="container-fluid bg-white mt-2">
-    <div class="container copyright">
+    <div class="container mt-3">
+      <div class="row row-eq-height">
+        <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+          <a href="{% static 'files/NiS-SR.pdf' %}" target="_blank"><img height="125" src="{% static 'images/cert.jpg' %}" alt=""></a>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+          <a class="natura-img" href="https://www.naturpack.sk/" target="_blank"><img height="50" src="{% static 'images/natura.gif' %}" alt=""> </a>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+          <a href="https://www.slanskevrchy.eu/michalany/" target="_blank"><img height="125" src="{% static 'images/SVR.png' %}" alt=""></a>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+          <a href="https://www.mindop.sk/" target="_blank"><img height="125" src="{% static 'images/MDPaT.png' %}" alt=""></a>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+          <img height="125" src="{% static 'images/umenie.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+          <a href="{% static 'files/Obec-Michaľany_protokol.pdf' %}" target="_blank"><img height="125" src="{% static 'images/NiS.png' %}" alt=""></a>
+        </div>
+      </div>
+      
+    </div>
+    <div class="container copyright border-top border-success mt-2">
       <p>Copyright © 2020 Michaľany | Technícky prevadzkovateľ a správca obsahu Matúš Gore |
         gorematus@gmail.com | Hosting websupport.sk</p>
     </div>

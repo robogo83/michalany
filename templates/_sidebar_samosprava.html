@@ -1,0 +1,45 @@
+{% load i18n %}
+{% load static %}
+
+
+<!-- menu -->
+<div class="col-3 d-none d-lg-block">
+    <h2 class="mt-3 pb-3 pulse"><a href="{% url 'samosprava' %}">Samospráva</a></h2>
+    <div id="myNavbar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link zoom" href="{% url 'starosta' %}">Starosta obce</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link zoom" href="{% url 'zastupitelstvo' %}">Obecné zastupiteľstvo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link zoom" href="#">Obecné komisie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link zoom" href="{% url 'faktury' %}">Faktúry</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link zoom" href="{% url 'zmluvy' %}">Zmluvy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link zoom" href="{% url 'vzn' %}">Všeobecné záväzné nariadenia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link zoom" href="#">Rozpočet obce</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link zoom" href="#">Záverečný účet obce</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link zoom" href="{% url 'uradna_tabula' %}">Úradna tabuľa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link zoom" href="#">Verejné obstaravanie</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+

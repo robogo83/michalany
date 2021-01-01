@@ -1,0 +1,86 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block title %}Zmluvy: Michaľany{% endblock title %}
+
+{% block content %}
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="d-block d-sm-none d-none d-sm-block d-lg-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light justify-content-end">
+                    <li class="breadcrumb-item zoom"><a href="{% url 'home' %}">Titulna stránka</a></li>
+                    <li class="breadcrumb-item zoom"><a href="{% url 'samosprava' %}">Samospráva</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Zmluvy</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container-fluid row">
+            {% include '_sidebar_samosprava.html' %}
+            <div class="col">
+                <h2 class="mb-5 display-4 text-center text-md-left">Zmluvy</h2>
+                <div class="accordion" id="accordionExample">
+                    {% for rok in zmluvy %}
+                    <div class="card mt-3">
+                        <div class="card-header bg-success" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-outline-success btn-block text-left text-white" type="button"
+                                    data-toggle="collapse" data-target="#collapse{{ forloop.counter }}"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    {{ rok.rok }}
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                   
+                                    <thead class="thead-dark">
+                                        <tr>
+{% if rok.rok == '2015' or rok.rok == '2016' or rok.rok == '2017' or rok.rok == '2018' or rok.rok == '2019' %}
+                                            <th scope="col">Číslo</th>
+                                            <th scope="col">Názov</th>
+                                            {% else %}
+                                            <th scope="col">Zmluvné strany</th>
+                                            <th scope="col">Zmluva</th>
+                                            {% endif %}
+                                        </tr>
+                                    </thead>
+                                    {% for zmluva in rok.zmluvy.all %}
+                                    <tbody>
+{% if rok.rok == '2015' or rok.rok == '2016' or rok.rok == '2017' or rok.rok == '2018' or rok.rok == '2019' %}
+                                        <td>
+                                            {{ zmluva.cislo }}
+                                        </td>
+                                        <td class="pulse">
+                                            <a href="{{zmluva.zmluva.url}}" target="_blank">
+                                                {{ zmluva.title|capfirst }}</a>
+                                        </td>
+                                        {% else %}
+                                        <td>
+                                            {{ zmluva.zmluvne_strany|capfirst }}
+                                        </td>
+                                        <td class="pulse">
+                                            <a href="{{zmluva.zmluva.url}}" target="_blank">
+                                                {{ zmluva.title|capfirst }}
+                                            </a>
+                                        </td>
+                                        {% endif %}
+                                    </tbody>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -2,12 +2,17 @@ body {
   font-family: 'Roboto Slab', serif;
 }
 
-p {
+p, a, li {
   font-family: 'Roboto', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, a {
   color: #132743;
+}
+
+a:hover {
+  color: #0e918c;
+  text-decoration: none;
 }
 
 /*********************************** Home Page ************************************************/
@@ -65,27 +70,107 @@ h1, h2, h3, h4, h5 {
   .kontakt-kniznica {
     padding-top: 7%;
   }
+  .natura-img {
+    margin-top: 3%;
+  }
 }
 
 /*********************************** Submenu Pages ************************************************/
-
-.amenu {
-  text-decoration: none !important;
-}
 
 div.submenu{
   background-image: linear-gradient(#61b15a, #b8de6f);
   height: 7rem;
   width: 18rem;
 }
-div:hover.submenu a{
-  background-color: rgb(233, 233, 6);
-  color: green;
-}
+
 div:hover.submenu{
   background-image: linear-gradient(#b8de6f,#61b15a);
   box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+/*********************************** Effects ************************************************/
+
+.zoom:hover {
+  transform: scale(1.1);
+  transition: all ease 500ms;
+}
+
+.pulse:hover {
+  animation: pulse 1s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.05);
+  100% { transform: scale(1);}
+  }
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 190px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-image: linear-gradient(#61b15a, #b8de6f);
+
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-image: linear-gradient(#b8de6f,#61b15a);
+  transform: rotateY(180deg);
+  font-size: 1.2rem;
+  font-style: italic;
+  
+}
+
+@media (max-width: 650px) {
+
+  .flip-card-back {
+    font-size: 1rem;
+  }
+}
+
+/*********************************** Pravomoci ************************************************/
+
+
+.oz-pravomoci {
+  font-size: large;
+  line-height: 1.6;
+  font-style: oblique;
+}
+
+
+
 
 
 

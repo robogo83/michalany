@@ -1,0 +1,55 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block title %}VZN: Michaľany{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid bg-light py-5">
+  <div class="container">
+    <div class="d-block d-sm-none d-none d-sm-block d-lg-none">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-light justify-content-end">
+          <li class="breadcrumb-item zoom"><a href="{% url 'home' %}">Titulna stránka</a></li>
+          <li class="breadcrumb-item zoom"><a href="{% url 'samosprava' %}">Samospráva</a></li>
+          <li class="breadcrumb-item active" aria-current="page">VZN</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      {% include '_sidebar_samosprava.html' %}
+      <div class="col">
+        <h2 class="mb-5 display-4 text-center text-md-left">Všeobecne záväzné nariadenia</h2>
+        <p>Oprávnenie vydávať všeobecne záväzné nariadenia dáva obci priamo <a
+            href="https://www.epi.sk/zz/1992-460">Ústava SR</a> a následne aj
+          <a href="https://www.epi.sk/zz/1990-369">zákon o obecnom zriadení</a>.
+          VZN slúži na úpravu mnohých vzťahov v obci, napr. na úpravu miestnych daní, verejného poriadku, odpadového
+          hospodárstva,
+          niektorých oblastí v školstve a mnohých ďalších.</p>
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Platné VZN:</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for nariadenie in nariadenia %}
+            <tr>
+              <td>
+                <a href="{{ nariadenie.file.url }}" target="_blank">
+                  {{ nariadenie.title }}
+                </a>
+              </td>
+
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

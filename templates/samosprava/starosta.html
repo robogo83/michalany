@@ -1,0 +1,167 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block title %}Starosta: Michaľany{% endblock title %}
+
+{% block content %}
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="d-block d-sm-none d-none d-sm-block d-lg-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light justify-content-end">
+                    <li class="breadcrumb-item zoom"><a href="{% url 'home' %}">Titulna stránka</a></li>
+                    <li class="breadcrumb-item zoom"><a href="{% url 'samosprava' %}">Samospráva</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Starosta obce</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container-fluid row">
+            {% include '_sidebar_samosprava.html' %}
+            <!-- stred -->
+            <div class="col">
+                <div class="starosta-kontakt mb-3">
+                    <h2 class="mb-5 display-4 text-center text-md-left">Starosta obce</h2>
+                    <h5> Na volebné obdobie rokov 2018 – 2022 sa stal starostom obce Michaľany</h5>
+                    <h2 class="my-4 text-center">Mgr. Zoltán Tarbaj</h2>
+                    <p class="text-center">
+                        <i class="fas fa-envelope-open"> ztarbaj@gmail.com</i>
+                        <i class="ml-3 fas fa-phone"> 0905 427 063</i>
+                    </p>
+                </div>
+                <div class="border-top border-success pt-3 mb-3">
+                    <h3 class="my-4 text-center">Právomoci starostu</h3>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5">Štatutárny orgán obce</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-3 px-2">Je štatutárnym orgánom obce v majetko-právnych vzťahoch obce a v pracovnoprávnych
+                                        vzťahoch pracovníkov obce</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5">Správny orgán</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-5 px-2">Je správnym orgánom v administratívnych vzťahoch</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5">Obecné zastupiteľstvo</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-5 px-3">Zvoláva a vedie zasadnutia obecného zastupiteľstva</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5">Správa obce</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-5">Vykonáva obecnú správu</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5">Rozhoduje</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-3">Rozhoduje vo všetkých veciach správy obce, ktoré nie sú zákonom, 
+                                        štatútom obce alebo iným rozhodnutím OZ
+                                        vyhradené OZ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5">Zastupuje</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-4 px-2">Zastupuje obec navonok ­ vo vzťahu k štátnym orgánom, 
+                                        právnickým osobám a fyzickým osobám</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5">Uschováva</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-5 px-3">Uschováva obecnú pečať a obecnú zástavu a používa obecné insígnie</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5 px-5">Odpisuje</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-4">Odpisuje všeobecne záväzné nariadenia obce a 
+                                        uznesenia obecného zastupiteľstva</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5">Pozastavuje</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-3">Môže pozastaviť výkon uznesenia obecného zastupiteľstva, ak sa domnieva, 
+                                        že odporuje zákonom, alebo je pre obec zjavne nevýhodné</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 my-3 flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4 class="pt-5">Ukladá</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p class="pt-5 px-3">Môže uložiť právnickej osobe pokutu do výšky 6 660,- €</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+                </div>
+
+                <div class="border-top border-success mb-3 pt-3">
+                    <h3 class="my-4 text-center">Funkcia starostu je podľa Zákona 369/1990 nezlučiteľná s funkciou</h3>
+                    
+                    <ul class="pt-2" style="list-style-type:circle;">
+                        <li>poslanca obecného zastupiteľstva,</li>
+                        <li>zamestnanca obce, v ktorej bol zvolený,</li>
+                        <li>štatutárneho orgánu rozpočtovej organizácie alebo príspevkovej organizácie zriadenej obcou,
+                            v ktorej bol zvolený,</li>
+                        <li>predsedu samosprávneho kraja,</li>
+                        <li>vedúceho zamestnanca orgánu štátnej správy,</li>
+                        <li>podľa osobitného zákona (napr. zákona č. 154/2001 Z.z. o prokurátoroch a právnych
+                            čakateľoch)</li>
+                    </ul>
+
+                    <a class="pt-2" href="#">Oznámenie funkcií, zamestnaní činnosti a majetkových pomerov za rok
+                        2019</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

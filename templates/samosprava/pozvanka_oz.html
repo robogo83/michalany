@@ -1,0 +1,35 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block title %}Pozvanka: Obecné zastupiteľstvo{% endblock title %}
+
+{% block content %}
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="d-block d-sm-none d-none d-sm-block d-lg-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light justify-content-end">
+                    <li class="breadcrumb-item zoom"><a href="{% url 'home' %}">Titulna stránka</a></li>
+                    <li class="breadcrumb-item zoom"><a href="{% url 'samosprava' %}">Samospráva</a></li>
+                    <li class="breadcrumb-item zoom"><a href="{% url 'zastupitelstvo' %}">Obecné zastupiteľstvo</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Pozvánka na zasadnutie OZ</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container-fluid row">
+            {% include '_sidebar_samosprava.html' %}
+            <!-- stred -->
+            <div class="col">
+                <h2 class="mb-5 display-4 text-center text-md-left">Pozvánka na zasadnutie OZ</h2>
+                <div class="oz-pravomoci">
+                    Cca 14 dní pred zasadnutím obecného zastupiteľstva Michaľany bude na tejto
+                    internetovej stránke zverejnená pozvánka vrátane programu.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -6,106 +6,84 @@
 {% block content %}
 <div class="container-fluid bg-light py-5">
     <div class="container pt-1">
-        <h2 class="text-center mb-3 display-3">Samospráva</h2>
+        <h2 class="text-center mb-4 display-3">Samospráva</h2>
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">STAROSTA OBCE</h5>
-                        </div>
+                <a href="{% url 'starosta' %}" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">STAROSTA OBCE</h5>
                     </div>
                 </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">OBECNÉ ZASTUPITEĽSTVO</h5>
-                        </div>
+                <a href="{% url 'zastupitelstvo' %}" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">OBECNÉ ZASTUPITEĽSTVO</h5>
                     </div>
                 </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">OBECNÉ KOMISIE</h5>
-                        </div>
+                <a href="#" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">OBECNÉ KOMISIE</h5>
                     </div>
                 </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">UZNESENIA A ZÁPISNICE</h5>
-                        </div>
+                <a href="#" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">UZNESENIA A ZÁPISNICE</h5>
                     </div>
                 </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">FAKTÚRY</h5>
-                        </div>
+                <a href="{% url 'faktury' %}" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">FAKTÚRY</h5>
                     </div>
                 </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">ZMLUVY</h5>
-                        </div>
+                <a href="{% url 'zmluvy' %}" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">ZMLUVY</h5>
                     </div>
                 </a>
             </div>
 
             <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">VŠEOBECNE ZÁVÄZNÉ NARIADENIA</h5>
-                        </div>
+                <a href="{% url 'vzn' %}" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">VŠEOBECNE ZÁVÄZNÉ NARIADENIA</h5>
                     </div>
                 </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">ROZPOČET OBCE</h5>
-                        </div>
+                <a href="#" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">ROZPOČET OBCE</h5>
                     </div>
                 </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">ZÁVEREČNÝ ÚČET OBCE</h5>
-                        </div>
+                <a href="#" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">ZÁVEREČNÝ ÚČET OBCE</h5>
                     </div>
                 </a>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">VEREJNÉ OBSTARÁVANIE</h5>
-                        </div>
+                <a href="#" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">VEREJNÉ OBSTARÁVANIE</h5>
                     </div>
                 </a>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center mt-3">
-                <a href="#" class="amenu">
-                    <div class="card text-center submenu">
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">ÚRADNÁ TABUĽA</h5>
-                        </div>
+                <a href="{% url 'uradna_tabula' %}" class="zoom">
+                    <div class="card-body text-center submenu">
+                        <h5 class="card-title mt-3">ÚRADNÁ TABUĽA</h5>
                     </div>
                 </a>
             </div>

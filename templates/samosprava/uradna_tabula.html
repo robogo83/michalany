@@ -1,0 +1,124 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}Úradná tabuľa: Michaľany{% endblock title %}
+
+{% block content %}
+<div class="container-fluid bg-light py-5">
+
+    <div class="container">
+        <div class="d-block d-sm-none d-none d-sm-block d-lg-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-light justify-content-end">
+                    <li class="breadcrumb-item"><a class="amenu" href="{% url 'home' %}">Titulna stránka</a></li>
+                    <li class="breadcrumb-item"><a class="amenu" href="{% url 'samosprava' %}">Samospráva</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Úradna tabuľa</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="d-flex">
+            <div class="ml-auto">
+                <form class="form-inline" action="{% url 'uradna_results' %}" method="get">
+                    <input name="q" class="form-control" type="text" placeholder="Vyhľadaj" aria-label="Vyhľadaj">
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- menu -->
+            {% include '_sidebar_samosprava.html' %}
+            <div class="col">
+                <h2 class="mb-5 display-4 text-center text-md-left">Úradná tabuľa</h2>
+                <div class="pagination mb-3">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1">&laquo; prvá</a>
+                            &emsp;<a href="?page={{ page_obj.previous_page_number }}">predchádzajúca</a>
+                        {% endif %}
+                
+                        <span class="current">
+                            &emsp;Strana {{ page_obj.number }} z {{ page_obj.paginator.num_pages }}
+                        </span>
+                
+                        {% if page_obj.has_next %}
+                        &emsp;<a href="?page={{ page_obj.next_page_number }}">ďalšia</a>
+                        &ensp;<a href="?page={{ page_obj.paginator.num_pages }}">posledná &raquo;</a>
+                        {% endif %}
+                    </span>
+                </div>
+                <table class="table table-hover">
+
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Dátum zverejnenia</th>
+                            <th scope="col">Názov</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in page_obj %}
+                        <tr>
+                            {% language 'sk' %}
+                            <td>{{ post.date|date:'d. F Y' }}</td>
+                            {% endlanguage %}
+                            <td>
+                                
+                                <a class="btn btn-outline-dark text-left" href="{{post.file.url}}" target="_blank">
+                                    {{ post.title }}
+                                </a><br>
+                                {% if post.title1 %}
+                                <a class="btn btn-outline-dark text-left mt-3" href="{{post.file1.url}}" target="_blank">
+                                    {{ post.title1 }}
+                                </a><br>
+                                {% endif %}                           
+                                {% if post.title2 %}
+                                <a class="btn btn-outline-dark text-left mt-3" href="{{post.file2.url}}" target="_blank">
+                                    {{ post.title2 }}
+                                </a><br>
+                                {% endif %}
+                                {% if post.title3 %}
+                                <a class="btn btn-outline-dark text-left mt-3" href="{{post.file3.url}}" target="_blank">
+                                    {{ post.title3 }}
+                                </a><br>
+                                {% endif %}
+                                {% if post.title4 %}
+                                <a class="btn btn-outline-dark text-left mt-3" href="{{post.file4.url}}" target="_blank">
+                                    {{ post.title4 }}
+                                </a><br>
+                                {% endif %}
+                                {% if post.title5 %}
+                                <a class="btn btn-outline-dark text-left mt-3" href="{{post.file5.url}}" target="_blank">
+                                    {{ post.title5 }}
+                                </a>
+                                {% endif %}
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1">&laquo; prvá</a>
+                            &emsp;<a href="?page={{ page_obj.previous_page_number }}">predchádzajúca</a>
+                        {% endif %}
+                
+                        <span class="current">
+                            &emsp;Strana {{ page_obj.number }} z {{ page_obj.paginator.num_pages }}
+                        </span>
+                
+                        {% if page_obj.has_next %}
+                        &emsp;<a href="?page={{ page_obj.next_page_number }}">ďalšia</a>
+                        &ensp;<a href="?page={{ page_obj.paginator.num_pages }}">posledná &raquo;</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
